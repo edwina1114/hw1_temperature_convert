@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             var TEMP = df.format(temp)
 
             answer.text = TEMP.toString()
+            //answer.text = ".2f".format(TEMP).toString()
         }
         //隱藏鍵盤
         val inputMethodManager =
