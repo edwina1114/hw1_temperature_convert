@@ -1,12 +1,13 @@
 package com.example.hw1_temperature_convert
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.hw1_temperature_convert.databinding.ActivityMainBinding
+import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +29,12 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             //var temp: Double ?= Double.parseDouble(tempInput.text)
             var temp: Double = tempInput.text.toString().toDouble()
+
+            val df = DecimalFormat("0.00")  //設定四捨五入的位數
             temp = (temp-32)*5/9
-            answer.text = temp.toString()
+            var TEMP = df.format(temp)
+
+            answer.text = TEMP.toString()
         }
         //隱藏鍵盤
         val inputMethodManager =
